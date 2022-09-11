@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.12)
+
+project(mt VERSION 0.1)
+
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED TRUE)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+
+include_directories(src)
+
+file(GLOB_RECURSE SRC CONFIGURE_DEPENDS src/mt/*)
+add_library(${PROJECT_NAME} STATIC ${SRC})
+
+install(TARGETS ${PROJECT_NAME} DESTINATION lib)
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/ DESTINATION include FILES_MATCHING PATTERN "*h")
