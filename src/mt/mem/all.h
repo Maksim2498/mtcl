@@ -3,5 +3,6 @@
 
 #include "heap.h"
 #include "manip.h"
+#include "sptr.h"
 
 #endif
