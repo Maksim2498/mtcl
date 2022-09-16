@@ -2,16 +2,17 @@
 #define MT_MEM_SPTR_H
 
 #include <mt/prim/def.h>
+#include <mt/meta.h>
 
 struct MSPtrCounter_ {
-    msize refCount;
-    msize weakRefCount;
+    msize  refCount;
+    msize  weakRefCount;
     mvoid *data;
 };
 
 typedef struct {
     struct MSPtrCounter_ *counter;
-    mbool weak;
+    mbool                 weak;
 } MSPtr;
 
 // New:
@@ -28,8 +29,8 @@ mvoid mFreeSPtr(MSPtr ptr);
 
 // Data:
 
-const mvoid *mGetSPtrDataC(const MSPtr ptr);
-mvoid *mGetSPtrData(MSPtr ptr);
+M_NULLABLE const mvoid *mGetSPtrDataC(const MSPtr ptr);
+M_NULLABLE mvoid *mGetSPtrData(MSPtr ptr);
 
 // Ref Count:
 

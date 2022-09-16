@@ -5,15 +5,15 @@
 #include <mt/mem/heap.h>
 
 struct MAtExitHandler {
-    MAtExitArg atExit;
+    MAtExitArg  atExit;
     mvoid      *arg;
 };
 
-static struct MAtExitHandler *mHandlers_       = M_NULL;
-static msize                 mHandlerCount_    = 0;
-static msize                 mHandlerMaxCount_ = 16;
+static struct MAtExitHandler *mHandlers_        = M_NULL;
+static msize                  mHandlerCount_    = 0;
+static msize                  mHandlerMaxCount_ = 16;
 
-static mvoid mIncHandlers_();
+static mvoid mPrepareHandlers_();
 static mvoid mInitHandlers_();
 static mvoid mAtExitProxy_();
 static mvoid mDoubleHandlers_();
@@ -28,7 +28,7 @@ mvoid mAtExitArgC(MAtExitArgC atExit, const mvoid *arg) {
 }
 
 mvoid mAtExitArg(MAtExitArg atExit, mvoid *arg) {
-    mIncHandlers_();
+    mPrepareHandlers_();
 
     const struct MAtExitHandler handler = {
         .atExit = atExit,
@@ -38,13 +38,10 @@ mvoid mAtExitArg(MAtExitArg atExit, mvoid *arg) {
     mPushHandler_(handler);
 }
 
-mvoid mIncHandlers_() {
-    if (!mHandlers_) {
+mvoid mPrepareHandlers_() {
+    if (!mHandlers_)
         mInitHandlers_();
-        return;
-    }
-
-    if (mHandlerCount_ == mHandlerMaxCount_)
+    else if (mHandlerCount_ == mHandlerMaxCount_)
         mDoubleHandlers_();
 }
 
@@ -54,7 +51,10 @@ mvoid mInitHandlers_() {
 }
 
 mvoid mAtExitProxy_() {
-    for (const struct MAtExitHandler *it  = mHandlers_, *end = it + mHandlerCount_; it != end; ++it) 
+    const struct MAtExitHandler *rbegin = mHandlers_ + mHandlerCount_ - 1;
+    const struct MAtExitHandler *rend   = mHandlers_ - 1;
+
+    for (const struct MAtExitHandler *it = rbegin; it != rend; --it) 
         it->atExit(it->arg); 
 
     mFree(mHandlers_);
@@ -62,7 +62,7 @@ mvoid mAtExitProxy_() {
 
 mvoid mDoubleHandlers_() {
     mHandlerMaxCount_ *= 2; 
-    mRenew(mHandlers_, struct MAtExitHandler, mHandlerMaxCount_);
+    mRenew(mHandlers_, mHandlerMaxCount_);
 }
 
 mvoid mPushHandler_(const struct MAtExitHandler handler) {

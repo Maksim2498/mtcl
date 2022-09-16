@@ -3,6 +3,7 @@
 
 #include "ctype.h"
 #include "def.h"
+#include "func.h"
 #include "limits.h"
 
 #endif
