@@ -110,10 +110,10 @@ MTypeID mGetMaxTypeID(const MMetaType *metaType) {
     struct MSubReg_ *subReg = mGetSubReg_(metaType);
 
     if (!subReg)
-        return M_INVALID_TYPE_ID;
+        return MTYPE_ID_INVALID;
 
     return subReg->count ? subReg->count - 1 
-                         : M_INVALID_TYPE_ID;
+                         : MTYPE_ID_INVALID;
 }
 
 MType *mGetTypeByID(const MMetaType *metaType, MTypeID id) {

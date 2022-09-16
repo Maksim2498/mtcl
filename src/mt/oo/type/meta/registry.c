@@ -46,12 +46,12 @@ mvoid mDoubleMetaTypes_() {
 MMetaType *mGetMetaTypeByID(MMetaTypeID id) {
     const MMetaTypeID maxID = mGetMaxMetaTypeID();
 
-    return M_INVALID_META_TYPE_ID == maxID ? M_NULL
-                                           : mMetaTypes_ + id;
+    return MMETA_TYPE_ID_INVALID == maxID ? M_NULL
+                                          : mMetaTypes_ + id;
 }
 
 MMetaTypeID mGetMaxMetaTypeID() {
-    return mMetaTypeCount_ ? mMetaTypeCount_ - 1 : M_INVALID_META_TYPE_ID;
+    return mMetaTypeCount_ ? mMetaTypeCount_ - 1 : MMETA_TYPE_ID_INVALID;
 }
 
 MMetaType *mGetMetaTypeByName(const mchar *name) {

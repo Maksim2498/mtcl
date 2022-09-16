@@ -4,7 +4,7 @@
 #include <mt/prim/def.h>
 #include <mt/prim/limits.h>
 
-#define M_INVALID_META_TYPE_ID M_SIZE_MAX
+#define MMETA_TYPE_ID_INVALID M_SIZE_MAX
 
 typedef msize MMetaTypeID;
 

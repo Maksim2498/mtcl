@@ -6,7 +6,7 @@
 
 #include "meta/type.h"
 
-#define M_INVALID_TYPE_ID M_SIZE_MAX
+#define MTYPE_ID_INVALID M_SIZE_MAX
 
 typedef msize MTypeID;
 typedef mvoid MType;
