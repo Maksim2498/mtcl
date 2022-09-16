@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(mt VERSION 0.2)
+project(mt VERSION 0.3)
 
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED TRUE)
