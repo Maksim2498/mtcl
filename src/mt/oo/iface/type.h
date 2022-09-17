@@ -1,5 +1,5 @@
-#ifndef MT_OO_INTERFACE_TYPE_H
-#define MT_OO_INTERFACE_TYPE_H
+#ifndef MT_OO_IFACE_TYPE_H
+#define MT_OO_IFACE_TYPE_H
 
 #include <mt/oo/type/meta/type.h>
 

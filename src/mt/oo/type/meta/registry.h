@@ -2,7 +2,7 @@
 #define MT_OO_TYPE_META_REGISTRY_H
 
 #include <mt/prim/def.h>
-#include <mt/meta.h>
+#include <mt/attr.h>
 
 #include "type.h"
 

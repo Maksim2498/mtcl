@@ -7,9 +7,9 @@
 #include "prim/all.h"
 #include "prog/all.h"
 
+#include "attr.h"
 #include "cstr.h"
 #include "generic.h"
-#include "meta.h"
 #include "varg.h"
 
 #endif

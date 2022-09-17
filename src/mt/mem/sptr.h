@@ -2,7 +2,7 @@
 #define MT_MEM_SPTR_H
 
 #include <mt/prim/def.h>
-#include <mt/meta.h>
+#include <mt/attr.h>
 
 struct MSPtrCounter_ {
     msize  refCount;

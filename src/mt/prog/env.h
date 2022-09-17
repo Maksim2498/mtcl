@@ -2,7 +2,7 @@
 #define MT_PROG_ENV_H
 
 #include <mt/prim/def.h>
-#include <mt/meta.h>
+#include <mt/attr.h>
 
 M_NULLABLE const mchar *mGetEnv(const mchar *name);
 

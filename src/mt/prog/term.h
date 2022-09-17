@@ -2,7 +2,7 @@
 #define MT_PROG_TERM_H
 
 #include <mt/prim/def.h>
-#include <mt/meta.h>
+#include <mt/attr.h>
 
 #define M_EXIT_SUCCESS 0
 #define M_EXIT_FAILURE 1
