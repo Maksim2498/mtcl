@@ -4,26 +4,26 @@
 #include <mt/prim/def.h>
 #include <mt/prim/limits.h>
 
-#define MMETA_TYPE_ID_INVALID M_SIZE_MAX
+#define MMTYPE_ID_INVALID M_SIZE_MAX
 
-typedef msize MMetaTypeID;
+typedef msize MMTypeID;
 
 typedef struct {
-    MMetaTypeID  id;
+    MMTypeID  id;
     const mchar *name;
-} MMetaType;
+} MMType;
 
 // ID:
 
-MMetaTypeID mGetMetaTypeID(const MMetaType *type);
+MMTypeID mGetMTypeID(const MMType *type);
 
 // Name:
 
-const mchar *mGetMetaTypeName(const MMetaType *type);
-mvoid mSetMetaTypeName(MMetaType *type, const mchar *name);
+const mchar *mGetMTypeName(const MMType *type);
+mvoid mSetMTypeName(MMType *type, const mchar *name);
 
 // Valid:
 
-mbool mIsMetaTypeValid(const MMetaType *type);
+mbool mIsMTypeValid(const MMType *type);
 
 #endif

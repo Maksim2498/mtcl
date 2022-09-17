@@ -19,6 +19,6 @@ mbool mIsTypeDescDValid(const struct MTypeDescD *desc) {
 
 mbool mIsTypeDescValid(const struct MTypeDesc *desc) {
     return desc
-        && mIsMetaTypeValid(desc->type)
+        && mIsMTypeValid(desc->type)
         && desc->name;
 }

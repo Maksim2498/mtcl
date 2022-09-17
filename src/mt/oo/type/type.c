@@ -2,11 +2,11 @@
 
 #include <mt/debug/assert.h>
 
-MMetaType *mGetTypeTypeC(const MType *type) {
+MMType *mGetTypeTypeC(const MType *type) {
     return mGetTypeType((MType *) type);	
 }
 
-MMetaType *mGetTypeType(MType *type) {
+MMType *mGetTypeType(MType *type) {
     mAssertMsg(mIsTypeValid(type), "<type> is invalid");	
     return ((const struct MType_ *) type)->type;	
 }
@@ -61,7 +61,7 @@ mbool mIsTypeValid(const MType *type) {
     const struct MType_ *type_ = type;
 
     return type_
-        && type_->type
+        && mIsMTypeValid(type_->type)
         && type_->name
         && type_->size >= sizeof(MType);
 }

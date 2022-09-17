@@ -5,7 +5,7 @@
 
 // Meta:
 
-#define MINTERFACE_META_TYPE mGetInterfaceMetaType()
-MMetaType *mGetInterfaceMetaType();
+#define MIFACE_MTYPE mGetIfaceMType()
+MMType *mGetIfaceMType();
 
 #endif

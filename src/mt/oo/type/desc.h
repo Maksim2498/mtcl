@@ -7,12 +7,12 @@
 #include "type.h"
 
 struct MTypeDesc {
-    MMetaType   *type;
+    MMType      *type;
     const mchar *name;
 };
 
 struct MTypeDescD {
-    MMetaType   *type;
+    MMType      *type;
     const mchar *name;
     msize        dataSize;
     const mvoid *data;

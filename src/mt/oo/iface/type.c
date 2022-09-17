@@ -2,11 +2,11 @@
 
 #include <mt/oo/type/meta/registry.h>
 
-MMetaType *mGetInterfaceMetaType() {
-    MMetaType *type = M_NULL;
+MMType *mGetIfaceMType() {
+    MMType *type = M_NULL;
 
     if (!type)
-        type = mRegMetaType("MInterface");
+        type = mRegMType("MIface");
 
     return type;
 }

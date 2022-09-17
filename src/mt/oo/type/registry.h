@@ -15,11 +15,11 @@ MType *mRegTypeD(const struct MTypeDescD *desc);
 
 // Misc:
 
-MTypeID mGetMaxTypeID(const MMetaType *metaType);
+MTypeID mGetMaxTypeID(const MMType *metaType);
 
 // Find:
 
-M_NULLABLE MType *mGetTypeByID(const MMetaType *metaType, MTypeID id);
-M_NULLABLE MType *mGetTypeByName(const MMetaType *metaType, const mchar *name);
+M_NULLABLE MType *mGetTypeByID(const MMType *mType, MTypeID id);
+M_NULLABLE MType *mGetTypeByName(const MMType *mType, const mchar *name);
 
 #endif

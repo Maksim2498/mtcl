@@ -18,12 +18,12 @@ struct MSubReg_ {
 static struct MSubReg_ *mSubRegs_      = M_NULL;
 static msize            mSubRegsCount_ = 0;
 
-static struct MSubReg_ *mGetOrCreateSubReg_(const MMetaType *metaType);
+static struct MSubReg_ *mGetOrCreateSubReg_(const MMType *metaType);
 static mvoid mFreeSubRegs_();
 static mvoid mFreeSubReg_(struct MSubReg_ *subReg);
 static MType *mCreateType_(struct MSubReg_ *subReg, const struct MTypeDescD *desc);
 static mvoid mPushType_(struct MSubReg_ *subReg, MType *type);
-static struct MSubReg_ *mGetSubReg_(const MMetaType *metaType);
+static struct MSubReg_ *mGetSubReg_(const MMType *metaType);
 
 MType *mRegType(const struct MTypeDesc *desc) { 
     const struct MTypeDescD descD = mTypeDescToD(desc);
@@ -41,8 +41,8 @@ MType *mRegTypeD(const struct MTypeDescD *desc) {
     return type;
 }
 
-struct MSubReg_ *mGetOrCreateSubReg_(const MMetaType *metaType) {
-    const MMetaTypeID metaTypeID = mGetMaxTypeID(metaType);
+struct MSubReg_ *mGetOrCreateSubReg_(const MMType *mType) {
+    const MMTypeID metaTypeID = mGetMaxTypeID(mType);
 
     if (!mSubRegs_)
         mAtExit(mFreeSubRegs_);        
@@ -104,8 +104,8 @@ mvoid mPushType_(struct MSubReg_ *subReg, MType *type) {
     subReg->types[subReg->count++] = type;
 }
 
-MTypeID mGetMaxTypeID(const MMetaType *metaType) {
-    mAssertMsg(mIsMetaTypeValid(metaType), "<metaType> is invalid");
+MTypeID mGetMaxTypeID(const MMType *metaType) {
+    mAssertMsg(mIsMTypeValid(metaType), "<metaType> is invalid");
     
     struct MSubReg_ *subReg = mGetSubReg_(metaType);
 
@@ -116,10 +116,10 @@ MTypeID mGetMaxTypeID(const MMetaType *metaType) {
                          : MTYPE_ID_INVALID;
 }
 
-MType *mGetTypeByID(const MMetaType *metaType, MTypeID id) {
-    mAssertMsg(mIsMetaTypeValid(metaType), "<metaType> is invalid");
+MType *mGetTypeByID(const MMType *mType, MTypeID id) {
+    mAssertMsg(mIsMTypeValid(mType), "<metaType> is invalid");
 	
-    struct MSubReg_ *subReg = mGetSubReg_(metaType);
+    struct MSubReg_ *subReg = mGetSubReg_(mType);
 
     if (!subReg)
         return M_NULL;
@@ -128,11 +128,11 @@ MType *mGetTypeByID(const MMetaType *metaType, MTypeID id) {
                               : M_NULL;
 }
 
-MType *mGetTypeByName(const MMetaType *metaType, const mchar *name) {
-    mAssertMsg(mIsMetaTypeValid(metaType), "<metaType> is invalid");
-    mAssertMsg(name,                       "<name> is null");
+MType *mGetTypeByName(const MMType *mType, const mchar *name) {
+    mAssertMsg(mIsMTypeValid(mType), "<mType> is invalid");
+    mAssertMsg(name,                 "<name> is null");
 
-    struct MSubReg_ *subReg = mGetSubReg_(metaType);
+    struct MSubReg_ *subReg = mGetSubReg_(mType);
 
     if (!subReg)
         return M_NULL;
@@ -148,8 +148,8 @@ MType *mGetTypeByName(const MMetaType *metaType, const mchar *name) {
     return M_NULL;
 }
 
-struct MSubReg_ *mGetSubReg_(const MMetaType *metaType) {
-    const MMetaTypeID metaTypeID = mGetMetaTypeID(metaType);
+struct MSubReg_ *mGetSubReg_(const MMType *mType) {
+    const MMTypeID metaTypeID = mGetMTypeID(mType);
 
     if (metaTypeID >= mSubRegsCount_)
         return M_NULL;

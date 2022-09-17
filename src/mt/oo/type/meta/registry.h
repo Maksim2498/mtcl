@@ -8,15 +8,15 @@
 
 // Reg:
 
-MMetaType *mRegMetaType(const mchar *name);
+MMType *mRegMType(const mchar *name);
 
 // Misc:
 
-MMetaTypeID mGetMaxMetaTypeID();
+MMTypeID mGetMaxMTypeID();
 
 // Find:
 
-M_NULLABLE MMetaType *mGetMetaTypeByID(MMetaTypeID id);
-M_NULLABLE MMetaType *mGetMetaTypeByName(const mchar *name);
+M_NULLABLE MMType *mGetMTypeByID(MMTypeID id);
+M_NULLABLE MMType *mGetMTypeByName(const mchar *name);
 
 #endif

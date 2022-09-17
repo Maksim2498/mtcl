@@ -2,11 +2,11 @@
 
 #include <mt/oo/type/meta/registry.h>
 
-MMetaType *mGetObjectMetaType() {
-    MMetaType *type = M_NULL;
+MMType *mGetObjMType() {
+    MMType *type = M_NULL;
 
     if (!type)
-        type = mRegMetaType("MObject");
+        type = mRegMType("MObject");
 
     return type;
 }

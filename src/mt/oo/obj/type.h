@@ -5,7 +5,7 @@
 
 // Meta:
 
-#define MOBJECT_META_TYPE mGetObjectMetaType()
-MMetaType *mGetObjectMetaType();
+#define MOBJ_MTYPE mGetObjMType()
+MMType *mGetObjMType();
 
 #endif
