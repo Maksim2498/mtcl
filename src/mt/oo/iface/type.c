@@ -1,9 +1,9 @@
 #include "type.h"
 
-#include <mt/oo/type/meta/registry.h>
+#include <mt/oo/type/meta/reg.h>
 
 MMType *mGetIfaceMType() {
-    MMType *type = M_NULL;
+    static MMType *type = M_NULL;
 
     if (!type)
         type = mRegMType("MIface");

@@ -3,6 +3,10 @@
 
 #include <mt/oo/type/meta/type.h>
 
+typedef struct {
+
+} MIType;
+
 // Meta:
 
 #define MIFACE_MTYPE mGetIfaceMType()

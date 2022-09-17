@@ -13,7 +13,7 @@ typedef mvoid MType;
 typedef mvoid (*MDeinitType)(MType *);
 
 struct MType_ {
-    MMType   *type; 
+    MMType      *type; 
     MTypeID      id;
     const mchar *name;
     msize        size;

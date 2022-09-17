@@ -4,7 +4,7 @@
 #include "meta/all.h"
 
 #include "desc.h"
-#include "registry.h"
+#include "reg.h"
 #include "type.h"
 
 #endif

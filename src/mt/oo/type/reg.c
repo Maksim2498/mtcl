@@ -1,4 +1,4 @@
-#include "registry.h"
+#include "reg.h"
 
 #include <mt/debug/assert.h>
 #include <mt/mem/heap.h>
