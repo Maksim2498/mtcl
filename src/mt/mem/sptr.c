@@ -53,7 +53,7 @@ MSPtr mNewSPtrWeakRef(MSPtr ptr) {
     return ptr;
 }
 
-mvoid mFreeSPtr(MSPtr ptr) {
+mvoid mReleaseSPtr(MSPtr ptr) {
     mAssertMsg(mIsSPtrValid(ptr), "<ptr> is invalid");
 
     if (ptr.weak) {

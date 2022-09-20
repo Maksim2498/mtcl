@@ -25,7 +25,7 @@ MSPtr mNewSPtrWeakRef(MSPtr ptr);
 
 // Free:
 
-mvoid mFreeSPtr(MSPtr ptr);
+mvoid mReleaseSPtr(MSPtr ptr);
 
 // Data:
 

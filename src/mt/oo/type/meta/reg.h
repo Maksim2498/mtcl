@@ -10,7 +10,7 @@
 
 MMType *mRegMType(const mchar *name);
 
-// Misc:
+// Max ID:
 
 MMTypeID mGetMaxMTypeID();
 

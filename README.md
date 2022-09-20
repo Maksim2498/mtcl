@@ -1,3 +1,7 @@
 # MoonTalk C Library
 
-Something will be written here soon...
+
+
+## About
+
+This is a general purpose C library.

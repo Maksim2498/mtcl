@@ -1,11 +1,12 @@
 #ifndef MT_OO_OBJ_TYPE_H
 #define MT_OO_OBJ_TYPE_H
 
-#include <mt/oo/type/meta/type.h>
+#include <mt/oo/type/type.h>
 
-// Meta:
+typedef MTypeID MOTypeID;
 
-#define MOBJ_MTYPE mGetObjMType()
-MMType *mGetObjMType();
+typedef struct {
+    struct MType_ super;
+} MOType;
 
 #endif

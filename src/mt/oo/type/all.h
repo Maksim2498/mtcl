@@ -6,5 +6,6 @@
 #include "desc.h"
 #include "reg.h"
 #include "type.h"
+#include "typed.h"
 
 #endif

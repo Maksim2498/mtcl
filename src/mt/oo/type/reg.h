@@ -13,7 +13,7 @@
 MType *mRegType(const struct MTypeDesc *desc);
 MType *mRegTypeD(const struct MTypeDescD *desc);
 
-// Misc:
+// Max ID:
 
 MTypeID mGetMaxTypeID(const MMType *metaType);
 
